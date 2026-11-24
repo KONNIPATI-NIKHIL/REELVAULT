@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-bg-primary text-text-primary font-body;
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0B0C10;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2A2D3A;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3A3D4A;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.25);
+    color: #F5F3EF;
+  }
+
+  /* Focus styles */
+  *:focus-visible {
+    outline: 2px solid #C9A84C;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(24, 27, 36, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .glass-nav {
+    background: rgba(11, 12, 16, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-modal {
+    background: rgba(18, 20, 27, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .input-field {
+    @apply w-full bg-bg-secondary border border-border-subtle rounded-xl px-4 py-3
+           text-text-primary placeholder-text-muted font-body text-sm
+           transition-all duration-200
+           focus:outline-none focus:border-accent-gold focus:ring-1 focus:ring-accent-gold/30;
+  }
+
+  .input-field:hover {
+    @apply border-border-moderate;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-gold to-accent-gold-light text-bg-primary
+           font-heading font-semibold text-sm px-6 py-3 rounded-xl
+           transition-all duration-200 hover:shadow-gold hover:scale-[1.02]
+           active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:scale-100;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-border-moderate text-text-secondary
+           font-heading font-medium text-sm px-6 py-3 rounded-xl
+           transition-all duration-200 hover:border-border-strong hover:text-text-primary
+           active:scale-[0.98];
+  }
+
+  .btn-danger {
+    @apply bg-red-500/10 border border-red-500/30 text-red-400
+           font-heading font-medium text-sm px-6 py-3 rounded-xl
+           transition-all duration-200 hover:bg-red-500/20 hover:border-red-500/50
+           active:scale-[0.98];
+  }
+
+  .card {
+    @apply bg-bg-card border border-border-subtle rounded-2xl shadow-card;
+  }
+
+  .stat-card {
+    @apply bg-bg-card border border-border-subtle rounded-2xl p-6 shadow-card
+           hover:border-border-moderate transition-all duration-300;
+  }
+
+  .section-label {
+    @apply text-xs font-heading font-semibold tracking-[0.15em] uppercase text-text-muted;
+  }
+
+  .gradient-text-gold {
+    background: linear-gradient(135deg, #C9A84C, #E8C97A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-violet {
+    background: linear-gradient(135deg, #7C6EF0, #A99DF5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .poster-fallback {
+    background: linear-gradient(145deg, #1E2130 0%, #12141B 100%);
+    @apply flex items-center justify-center;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .aspect-poster {
+    aspect-ratio: 2 / 3;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

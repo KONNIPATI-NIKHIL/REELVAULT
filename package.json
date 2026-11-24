@@ -1,0 +1,16 @@
+{
+  "name": "reelvault",
+  "version": "1.0.0",
+  "description": "REELVAULT — Premium Movie Collection Management System (MERN Stack)",
+  "scripts": {
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "seed": "cd server && node seed.js",
+    "test:server": "cd server && npm test",
+    "build:client": "cd client && npm run build"
+  },
+  "keywords": ["MERN", "MongoDB", "React", "Express", "movies"],
+  "author": "REELVAULT",
+  "license": "MIT"
+}
